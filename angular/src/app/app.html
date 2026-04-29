@@ -1,9 +1,13 @@
 <h1>DOGS</h1>
 
+<app-favorites></app-favorites>
+
 <ul>
   <li *ngFor="let dog of dogs()">
     {{ dog.name }}
-    <button>🧡</button>
+    <button (click)="addToFavorites(dog)" [disabled]="isFavorite(dog.id)">
+      {{ isFavorite(dog.id) ? 'Added' : 'Add🧡' }}
+    </button>
   </li>
   
 </ul>

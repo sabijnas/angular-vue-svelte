@@ -14,4 +14,16 @@ export class DogService {
     getDogs(): Observable<any[]> {
         return this.http.get<any[]>(this.apiUrl);
     }
+
+    addFavorite(dog: any): Observable<any> {
+        return this.http.post("http://localhost:3000/favorites", dog)
+    } 
+
+    getFavorites(): Observable<any[]> {
+        return this.http.get<any[]>("http://localhost:3000/favorites");
+    }
+
+    removeFavorite(dogId: string): Observable<any> {
+        return this.http.delete(`http://localhost:3000/favorites/${dogId}`)
+    }
 }

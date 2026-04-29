@@ -1,12 +1,14 @@
-import { Component, signal, inject } from '@angular/core';
+import { Component, signal, effect } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { DogService } from './dog.service';
+import { FavoritesService } from './favorites.service';
+import { Favorites } from "./favorites/favorites";
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, RouterOutlet, Favorites],
   templateUrl: './app.html',
   styleUrls: ['./app.css']
 })
@@ -14,10 +16,25 @@ import { DogService } from './dog.service';
 export class App {
 protected readonly title = signal('angular');
 protected readonly dogs = signal<any[]>([]);
+get favorites() {
+  return this.favoriteService.favorites();
+}
 
-private readonly dogService = inject(DogService);
+constructor(private dogService: DogService,
+  public favoriteService: FavoritesService) {
+  
+    effect(() => {
+      this.dogService.getDogs().subscribe(data => {
+        this.dogs.set(data);
+      });
+    });
+}
 
-constructor() {
-  this.dogService.getDogs().subscribe((d) => this.dogs.set(d));
+addToFavorites(dog: any) {
+  this.favoriteService.addFavorite(dog);
+}
+ 
+isFavorite(id: any) {
+  return this.favoriteService.favorites().some((f: any) => f.id === id);
 }
 }

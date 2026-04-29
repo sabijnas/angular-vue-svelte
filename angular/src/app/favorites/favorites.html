@@ -1,0 +1,12 @@
+<h3>Favorite works!</h3>
+
+<ul>
+  <li *ngFor="let dog of favorites()">
+    {{ dog.name }}
+    <button (click)="removeFavorite(dog.id)">Remove</button>
+  </li>
+</ul>
+
+<div *ngIf="favorites().length === 0">
+  <p>You don't have any favorites yet...</p>
+</div>
