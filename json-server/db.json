@@ -1,0 +1,25 @@
+{
+  "dogs": [
+    { "id": 1, "name": "Golden Retriver" },
+    { "id": 2, "name": "French Bulldog" },
+    { "id": 3, "name": "Labrador Retriver" },
+    { "id": 4, "name": "German Shepherd" },
+    { "id": 5, "name": "Poodle" },
+    { "id": 6, "name": "Dachshund" },
+    { "id": 7, "name": "Beagle" },
+    { "id": 8, "name": "Rottweiler" },
+    { "id": 9, "name": "German Shorthaired Pointer" },
+    { "id": 10, "name": "Pembroke Welsh Corgi" },
+    { "id": 11, "name": "Australian Shepherd" },
+    { "id": 12, "name": "Yorkshire Terrier" },
+    { "id": 13, "name": "Boxer" },
+    { "id": 14, "name": "Cavalier King Charles Spaniel" },
+    { "id": 15, "name": "Doberman Pinscher" },
+    { "id": 16, "name": "Siberian Husky" },
+    { "id": 17, "name": "Great Dane" },
+    { "id": 18, "name": "Shih Tzu" },
+    { "id": 19, "name": "Miniature Schnauzer" },
+    { "id": 20, "name": "Boston Terrier" }
+  ],
+  "favorites": []
+}
