@@ -1,12 +1,13 @@
-<h3>Favorite works!</h3>
+<div class="favorite-wrapper">
+<h3>Favorite dogs</h3>
 
 <ul>
   <li *ngFor="let dog of favorites()">
-    {{ dog.name }}
-    <button (click)="removeFavorite(dog.id)">Remove</button>
+    <p class="text">{{ dog.name }}<button (click)="removeFavorite(dog.id)">❌</button></p>  
   </li>
 </ul>
 
 <div *ngIf="favorites().length === 0">
-  <p>You don't have any favorites yet...</p>
+  <p class="text">You don't have any favorites yet... Press on the heart to add to favorites</p>
+</div>
 </div>

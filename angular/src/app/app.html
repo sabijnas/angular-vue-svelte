@@ -4,10 +4,10 @@
 
 <ul>
   <li *ngFor="let dog of dogs()">
-    {{ dog.name }}
     <button (click)="addToFavorites(dog)" [disabled]="isFavorite(dog.id)">
       {{ isFavorite(dog.id) ? '🤍' : '🧡' }}
-    </button>
+    </button><p>{{ dog.name }}</p>
+    
   </li>
   
 </ul>
