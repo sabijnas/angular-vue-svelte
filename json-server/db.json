@@ -101,6 +101,5 @@
       "description": "A lively, compact, and affectionate companion affectionately known as 'The American Gentleman' due to its tuxedo-like coat."
     }
   ],
-  "favorites": [],
-  "$schema": "./node_modules/json-server/schema.json"
+  "favorites": []
 }
