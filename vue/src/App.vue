@@ -43,13 +43,45 @@ provide("toggleFavorite", toggleFavorite);
 
   <Favorites />
 
-  <div v-for="dog in data" :key="dog.id">
+  <ul>
+  <li v-for="dog in data" :key="dog.id">
     <button @click="toggleFavorite(dog)">
       {{ favorites.some((f) => f.id === dog.id) ? "🤍" : "🩷" }}
     </button>
     <h4>{{ dog.name }}</h4>
     <p>{{ dog.description }}</p>
-  </div>
+  </li>
+</ul>
+
 </template>
 
-<style scoped></style>
+<style scoped>
+h1 {
+  text-align: center;
+}
+
+h1 {
+    text-align: center;
+}
+
+li {
+    list-style: none;
+    border: 1px solid rgb(215, 19, 222);
+    border-radius: 10px;
+    padding: 16px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+ul {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 16px;
+    padding: 0;
+}
+
+button {
+    background: none;
+    border: none;
+    font-size: 15px;
+}
+</style>

@@ -13,16 +13,39 @@ const removeFavorite = (id: string) => {
 </script>
 
 <template>
-  <h2>Favorites</h2>
-  <p v-if="favorites.length === 0">
+<div class="favorite-wrapper">
+  <h3>Favorites</h3>
+  <p class="text" v-if="favorites.length === 0">
     You don't have any favorites yet... Press on the heart to add to favorites
   </p>
 
   <ul>
     <li v-for="dog in favorites" :key="dog.id">
-      <p>{{ dog.name }} <button @click="removeFavorite(dog.id)">❌</button></p>
+      <p class="text">{{ dog.name }} <button @click="removeFavorite(dog.id)">❌</button></p>
     </li>
   </ul>
+</div>
+
 </template>
 
-<style scoped></style>
+<style scoped>
+.favorite-wrapper {
+    border: 1px solid black;
+    max-width: 300px;
+    margin: 0 auto;
+}
+
+.text, h3 {
+    margin-left: 30px;
+}
+
+li {
+    list-style: none;
+}
+
+button {
+    background: none;
+    border: none;
+    font-size: 15px;
+}
+</style>
