@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import Favorites from "./Favorites.vue";
 import { onMounted, ref } from "vue";
 
 type Dog = { id: string; name: string; description: string };
@@ -23,6 +24,8 @@ const isFavorite = (id: string) => {
 
 <template>
   <h1>DOGS</h1>
+
+  <Favorites/>
 
   <div v-for="dog in data" :key="dog.id">
     <button @click="isFavorite(dog.id)">
