@@ -7,7 +7,7 @@
     <button (click)="addToFavorites(dog)" [disabled]="isFavorite(dog.id)">
       {{ isFavorite(dog.id) ? '🤍' : '🧡' }}
     </button><p>{{ dog.name }}</p>
-    
+    <p> {{dog.description}} </p>
   </li>
   
 </ul>
