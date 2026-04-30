@@ -9,13 +9,24 @@ onMounted(async () => {
   const res = await fetch("http://localhost:3000/dogs");
   data.value = await res.json();
 });
+
+const favorites = ref<Set<string>>(new Set())
+
+const isFavorite = (id: string) => {
+  if (favorites.value.has(id)) {
+    favorites.value.delete(id)
+  } else {
+    favorites.value.add(id)
+  }
+}
 </script>
 
 <template>
   <h1>DOGS</h1>
 
   <div v-for="dog in data" :key="dog.id">
-    <button>🩷</button>
+    <button @click="isFavorite(dog.id)">
+    {{ favorites.has(dog.id) ? "🤍" : "🩷" }}</button>
     <h4>{{ dog.name }}</h4>
     <p>{{ dog.description }}</p>
   </div>
