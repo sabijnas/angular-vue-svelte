@@ -6,7 +6,7 @@
   <li *ngFor="let dog of dogs()">
     <button (click)="addToFavorites(dog)" [disabled]="isFavorite(dog.id)">
       {{ isFavorite(dog.id) ? '🤍' : '🧡' }}
-    </button><p>{{ dog.name }}</p>
+    </button><h4>{{ dog.name }}</h4>
     <p> {{dog.description}} </p>
   </li>
   
