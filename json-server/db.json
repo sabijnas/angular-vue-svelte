@@ -101,5 +101,12 @@
       "description": "A lively, compact, and affectionate companion affectionately known as 'The American Gentleman' due to its tuxedo-like coat."
     }
   ],
-  "favorites": []
+  "favorites": [
+    {
+      "id": "MglzozUWCtg",
+      "name": "Golden Retriver",
+      "description": "Intelligent, gentle, and incredibly loyal, often used as therapy and family dogs."
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
 }

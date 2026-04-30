@@ -8,6 +8,14 @@ onMounted(async () => {
     const res = await fetch("http://localhost:3000/favorites")
     favorites.value = await res.json();
 })
+
+const removeFavorite = async (id: string) => {
+    await fetch(`http://localhost:3000/favorites/${id}`, {
+        method: "DELETE"
+    })
+
+    favorites.value = favorites.value.filter(dog => dog.id !== id)
+}
 </script>
 
 <template>
@@ -16,7 +24,7 @@ onMounted(async () => {
 
 <ul>
     <li v-for="dog in favorites" :key="dog.id">
-        <p>{{ dog.name }} <button>❌</button></p>
+        <p>{{ dog.name }} <button @click="removeFavorite(dog.id)">❌</button></p>
     </li>
 </ul>
 </template>
