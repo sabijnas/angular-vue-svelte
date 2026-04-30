@@ -6,4 +6,5 @@ Ett skolprojekt för att testa tre populära frontend-ramverk. Jag valde att gö
 * Öppna terminalen och navigera till json-server genom att skriva: cd json-server <br>
 * Skriv sedan: npx json-server --watch db.json --port 3000 (för att köra json-servern) <br>
 * Öppna en ny flik i terminalen och skriv: cd angular <br>
-* Skriv sedan: ng serve (för att starta servern för angular)
+* Skriv sedan: ng serve (för att starta servern för angular) <br>
+* Kopiera servern till din webbläsare (vanligtvis http://localhost:4200)
