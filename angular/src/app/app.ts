@@ -1,5 +1,4 @@
 import { Component, signal, effect } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { DogService } from './dog.service';
 import { FavoritesService } from './favorites.service';
@@ -8,7 +7,7 @@ import { Favorites } from "./favorites/favorites";
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule, RouterOutlet, Favorites],
+  imports: [CommonModule, Favorites],
   templateUrl: './app.html',
   styleUrls: ['./app.css']
 })
@@ -35,6 +34,6 @@ addToFavorites(dog: any) {
 }
  
 isFavorite(id: any) {
-  return this.favoriteService.favorites().some((f: any) => f.id === id);
+  return this.favoriteService.favorites().some((f: any) => String(f.dogId ?? f.id) === String(id));
 }
 }

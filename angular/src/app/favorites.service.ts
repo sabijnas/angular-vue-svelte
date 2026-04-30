@@ -16,16 +16,18 @@ export class FavoritesService {
     }
 
     addFavorite(dog: any) {
-        if (!this.favorites().some(fav => fav.id === dog.id)) {
-            this.dogService.addFavorite(dog).subscribe(() => {
-                this.favorites.update(favs => [...favs, dog]);
+        const dogId = String(dog.id);
+
+        if (!this.favorites().some(fav => String(fav.dogId ?? fav.id) === dogId)) {
+            this.dogService.addFavorite({ ...dog, dogId }).subscribe((createdFavorite) => {
+                this.favorites.update(favs => [...favs, createdFavorite]);
             })
         }
     }
 
     removeFavorite(dogId: string) {
         this.dogService.removeFavorite(dogId).subscribe(() => {
-            this.favorites.update(favs => favs.filter(fav => fav.id !== dogId));
+            this.favorites.update(favs => favs.filter(fav => String(fav.id) !== String(dogId)));
         });
     }
 }
