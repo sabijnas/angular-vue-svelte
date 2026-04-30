@@ -1,32 +1,28 @@
 <script setup lang="ts">
-import { onMounted, ref } from 'vue';
+import { inject } from "vue";
 
-type Dog = {id: string, name: string}
-const favorites = ref<Dog[]>([]);
+type Dog = { id: string; name: string };
 
-onMounted(async () => {
-    const res = await fetch("http://localhost:3000/favorites")
-    favorites.value = await res.json();
-})
+const favorites = inject("favorites") as any;
+const toggleFavorite = inject("toggleFavorite") as (dog: Dog) => void;
 
-const removeFavorite = async (id: string) => {
-    await fetch(`http://localhost:3000/favorites/${id}`, {
-        method: "DELETE"
-    })
-
-    favorites.value = favorites.value.filter(dog => dog.id !== id)
-}
+const removeFavorite = (id: string) => {
+  const dog = favorites.value.find((d: Dog) => d.id === id);
+  if (dog) toggleFavorite(dog);
+};
 </script>
 
 <template>
-<h2>Favorites</h2>
-<p v-if="favorites.length === 0">You don't have any favorites yet... Press on the heart to add to favorites</p>
+  <h2>Favorites</h2>
+  <p v-if="favorites.length === 0">
+    You don't have any favorites yet... Press on the heart to add to favorites
+  </p>
 
-<ul>
+  <ul>
     <li v-for="dog in favorites" :key="dog.id">
-        <p>{{ dog.name }} <button @click="removeFavorite(dog.id)">❌</button></p>
+      <p>{{ dog.name }} <button @click="removeFavorite(dog.id)">❌</button></p>
     </li>
-</ul>
+  </ul>
 </template>
 
 <style scoped></style>
