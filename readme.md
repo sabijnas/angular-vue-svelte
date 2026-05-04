@@ -1,6 +1,6 @@
 # Angular-Vue-Svelte
 
-Ett skolprojekt för att testa tre populära frontend-ramverk. Jag valde att göra en json-server med API för att hämta hundar och lägga till/ta bort från favoriter. Denna uppgift är gjort i Angular, Vue och Svelte. För att testa projektet, börja med att clona ner repot eller hämta det som ZIP fil och öppna i din kodeditor. 
+Ett skolprojekt för att testa tre populära frontend-ramverk. Jag valde att göra en json-server med API för att hämta hundar och lägga till/ta bort från favoriter. Denna uppgift är gjort i Angular, Vue och Svelte. För att testa projektet, börja med att klona ner repot eller hämta det som ZIP fil och öppna i din kodeditor. 
 
 ### Starta projektet i angular
 * Kör: npm install
