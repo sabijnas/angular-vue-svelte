@@ -17,3 +17,11 @@ Ett skolprojekt för att testa tre populära frontend-ramverk. Jag valde att gö
 * Öppna en ny flik i terminalen och skriv: cd vue <br>
 * Skriv sedan: npm run dev (för att starta servern för Vue) <br>
 * Kopiera servern till din webbläsare (vanligtvis http://localhost:5174)
+
+### Starta projektet i Svelte
+* Kör: npm install
+* Öppna terminalen och navigera till json-server genom att skriva: cd json-server <br>
+* Skriv sedan: npx json-server --watch db.json --port 3000 (för att köra json-servern) <br>
+* Öppna en ny flik i terminalen och skriv: cd svelte <br>
+* Skriv sedan: npm run dev (för att starta servern för Svelte) <br>
+* Kopiera servern till din webbläsare vanligtvis(http://localhost:5173)
