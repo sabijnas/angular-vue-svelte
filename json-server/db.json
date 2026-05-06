@@ -103,24 +103,16 @@
   ],
   "favorites": [
     {
-      "id": "uDLSq3Z_d14",
-      "name": "French Bulldog",
-      "description": "Small, affectionate, and highly adaptable, making them perfect for city living."
+      "dogId": "17",
+      "name": "Great Dane",
+      "description": "Often called the 'Apollo of dogs', they are sweet-natured, patient, and loyal companions that make excellent family pets despite their intimidating stature.",
+      "id": "HwlzqBhTJdo"
     },
     {
-      "id": "2cteWPtt5HE",
-      "name": "Poodle",
-      "description": "Elegant and highly intelligent dogs that come in toy, miniature, and standard sizes."
-    },
-    {
-      "id": "DWPIIatI31A",
-      "name": "Labrador Retriver",
-      "description": "Known for being friendly, outgoing, and the ultimate family companion."
-    },
-    {
-      "id": "U0gXBQRHHAY",
-      "name": "French Bulldog",
-      "description": "Small, affectionate, and highly adaptable, making them perfect for city living."
+      "dogId": "13",
+      "name": "Boxer",
+      "description": "Exuberant, playful, and loyal dogs known for their energetic nature.",
+      "id": "oQ8laz4x6ok"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"
