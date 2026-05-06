@@ -1,28 +1,70 @@
-<script>
+<script lang="ts">
 
 import { onMount } from "svelte";
-/**
-   * @type {any[] | null | undefined}
-   */
- export let dogs = [];
+import Favorites from "./Favorites.svelte";
 
-onMount(() => {
-  fetch("http://localhost:3000/dogs")
-  .then(res => res.json())
-  .then(data => {
-    dogs = data 
-  })
-})
+ export let dogs: any[] | null | undefined = [];
+
+ let favorites: any[] = [];
+
+onMount(async() => {
+  const resDogs = await fetch("http://localhost:3000/dogs");
+  dogs = await resDogs.json();
+
+  const resFav = await fetch("http://localhost:3000/favorites");
+  favorites = await resFav.json();
+});
+
+async function toggleFavorite(dog: any) {
+  const existing = favorites.find(f => f.dogId === dog.id)
+
+  if (existing) {
+    await fetch (`http://localhost:3000/favorites/${existing.id}`, {
+      method: "DELETE"
+    });
+
+    favorites = favorites.filter(f => f.id !== existing.id);
+  } else {
+    const res = await fetch("http://localhost:3000/favorites", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        dogId: dog.id,
+        name: dog.name,
+        description: dog.description
+      })
+    });
+
+    const newFav = await res.json();
+    favorites = [...favorites, newFav];
+  }
+}
+
+function isFavorite(dog: any) {
+  return favorites.some(f => f.dogId === dog.id);
+}
+
+async function handleRemove(event: any) {
+  const fav = event.detail;
+  await fetch(`http://localhost:3000/favorites/${fav.id}`, {
+    method: "DELETE"
+  });
+  favorites = favorites.filter(f => f.id !== fav.id);
+}
+
 </script>
 
 <main>
 
  <h1>DOGS</h1>
+ <Favorites {favorites} on:remove={handleRemove}/>
 
 <ul>
   {#each dogs as dog}
     <li>
-      <button>🩵</button>
+      <button on:click={() => toggleFavorite(dog)}> {favorites.some(f => f.dogId === dog.id) ? "🤍" : "🩵"}</button>
       <h4>{dog.name}</h4>
       <p>{dog.description}</p>
     </li>
