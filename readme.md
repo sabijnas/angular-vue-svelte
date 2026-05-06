@@ -24,4 +24,4 @@ Ett skolprojekt för att testa tre populära frontend-ramverk. Jag valde att gö
 * Skriv sedan: npx json-server --watch db.json --port 3000 (för att köra json-servern) <br>
 * Öppna en ny flik i terminalen och skriv: cd svelte <br>
 * Skriv sedan: npm run dev (för att starta servern för Svelte) <br>
-* Kopiera servern till din webbläsare vanligtvis(http://localhost:5173)
+* Kopiera servern till din webbläsare (vanligtvis http://localhost:5173)
