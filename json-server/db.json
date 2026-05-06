@@ -103,16 +103,16 @@
   ],
   "favorites": [
     {
-      "dogId": "17",
+      "id": "7rw6ejPEBG8",
       "name": "Great Dane",
       "description": "Often called the 'Apollo of dogs', they are sweet-natured, patient, and loyal companions that make excellent family pets despite their intimidating stature.",
-      "id": "HwlzqBhTJdo"
+      "dogId": "17"
     },
     {
-      "dogId": "13",
+      "id": "nyn-MEPwwcw",
       "name": "Boxer",
       "description": "Exuberant, playful, and loyal dogs known for their energetic nature.",
-      "id": "oQ8laz4x6ok"
+      "dogId": "13"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"
